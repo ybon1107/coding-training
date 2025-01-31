@@ -5,15 +5,11 @@ class Solution {
         for(String[] data : db){
             if(data[0].equals(id_pw[0])){
                 if(data[1].equals(id_pw[1])){
-                    answer = "login";
+                    return "login";
                 }
-                else{
-                    answer = "wrong pw";
-                }
-                break;
+                return "wrong pw";
             }
-            else{answer = "fail";}
         }
-        return answer;
+        return "fail";
     }
 }

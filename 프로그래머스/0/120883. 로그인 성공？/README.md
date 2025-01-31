@@ -1,10 +1,10 @@
 # [level 0] 로그인 성공? - 120883 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120883) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120883?language=java) 
 
 ### 성능 요약
 
-메모리: 81.7 MB, 시간: 0.02 ms
+메모리: 88.1 MB, 시간: 0.02 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 01월 31일 13:04:04
+2025년 01월 31일 13:07:02
 
 ### 문제 설명
 
