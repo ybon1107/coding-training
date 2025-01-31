@@ -16,7 +16,7 @@ class Solution {
         
         // 완주하지 못한 참가자를 찾기
         for (String part : participant) {
-            if (result.get(part) != null && result.get(part) > 0) {
+            if ( result.get(part) > 0) {
                 return part; // 완주하지 못한 참가자 반환
             }
         }
