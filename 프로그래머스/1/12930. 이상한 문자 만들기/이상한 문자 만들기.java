@@ -1,14 +1,22 @@
 class Solution {
-  public String solution(String s) {
+    public String solution(String s) {
+        StringBuilder modifiedSentence = new StringBuilder();
+        int wordIndex = 0;
 
-        String answer = "";
-        int cnt = 0;
-        String[] array = s.split("");
-
-        for(String ss : array) {
-            cnt = ss.contains(" ") ? 0 : cnt + 1;
-            answer += cnt%2 == 0 ? ss.toLowerCase() : ss.toUpperCase(); 
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == ' ') {
+                modifiedSentence.append(" ");
+                wordIndex = 0;
+            } else {
+                if (wordIndex % 2 == 0) {
+                    modifiedSentence.append(Character.toUpperCase(c));
+                } else {
+                    modifiedSentence.append(Character.toLowerCase(c));
+                }
+                wordIndex++; 
+            }
         }
-      return answer;
-  }
+        return modifiedSentence.toString();
+    }
 }
