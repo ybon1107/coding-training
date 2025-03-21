@@ -1,10 +1,10 @@
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Set;
 class Solution {
     public int[] solution(int[] numbers) {
         // hashset 정의
         // 완전 탐색하면서 hashset에 넣기
-        Set<Integer> set = new HashSet<>();
+        TreeSet<Integer> set = new TreeSet<>();
         
         for(int i=0; i < numbers.length; i ++){
             for(int j = i+1 ; j < numbers.length; j ++){
@@ -12,6 +12,6 @@ class Solution {
                 set.add(result);
             }
         }
-        return set.stream().sorted().mapToInt(Integer::intValue).toArray();
+        return set.stream().mapToInt(Integer::intValue).toArray();
     }
 }
