@@ -15,20 +15,33 @@ public class Main {
             board[i] = br.readLine().toCharArray();
         }
 
-        for(int i=0; i<N; i++){
-            for(int j=0; j<N; j++){
-                if(j + 1 < N && board[i][j] != board[i][j + 1]){
-                    swap(i,j,i,j+1);
-                    check();
-                    swap(i,j,i,j+1);
-                }
-                if(i + 1 < N && board[i][j] != board[i+1][j]){
-                    swap(i,j,i+1,j);
-                    check();
-                    swap(i,j,i+1,j);
-                }
-            }
+        for (int i = 0; i < N; i++) {
+            checkLine(i);
+            checkColumn(i);
         }
+
+        for (int i = 0; i < N; i++) {
+    for (int j = 0; j < N; j++) {
+
+        // 오른쪽 스왑
+        if (j + 1 < N && board[i][j] != board[i][j + 1]) {
+            swap(i, j, i, j + 1);
+            checkLine(i);
+            checkColumn(j);
+            checkColumn(j + 1);
+            swap(i, j, i, j + 1);
+        }
+
+        // 아래쪽 스왑
+        if (i + 1 < N && board[i][j] != board[i + 1][j]) {
+            swap(i, j, i + 1, j);
+            checkColumn(j);
+            checkLine(i);
+            checkLine(i + 1);
+            swap(i, j, i + 1, j);
+        }
+    }
+}
 
         System.out.print(maxCount);
 
@@ -40,28 +53,27 @@ public class Main {
         board[x2][y2] = temp;
     }
 
-    static void check(){
-        for(int i = 0; i < N ; i ++){
-            int rowCount = 1;
-            int colCount = 1;
-
-            for(int j = 1; j < N; j ++){
-                if(board[i][j] == board[i][j-1]){
-                    rowCount++;
-                } else{
-                    rowCount = 1;
-                }
-                maxCount = Math.max(maxCount,rowCount);
-
-                if(board[j][i] == board[j-1][i]){
-                    colCount++;
-                } else{
-                    colCount = 1;
-                }
-
-                maxCount = Math.max(maxCount, colCount);
+    static void checkLine(int row) {
+        int count = 1;
+        for (int i = 1; i < N; i++) {
+            if (board[row][i] == board[row][i - 1]) {
+                count++;
+            } else {
+                count = 1;
             }
+            maxCount = Math.max(maxCount, count);
+        }
+    }
 
+    static void checkColumn(int col) {
+        int count = 1;
+        for (int i = 1; i < N; i++) {
+            if (board[i][col] == board[i - 1][col]) {
+                count++;
+            } else {
+                count = 1;
+            }
+            maxCount = Math.max(maxCount, count);
         }
     }
 
