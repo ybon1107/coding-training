@@ -17,12 +17,12 @@ public class Main {
 
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
-                if(j + 1 < N){
+                if(j + 1 < N && board[i][j] != board[i][j + 1]){
                     swap(i,j,i,j+1);
                     check();
                     swap(i,j,i,j+1);
                 }
-                if(i + 1 < N){
+                if(i + 1 < N && board[i][j] != board[i+1][j]){
                     swap(i,j,i+1,j);
                     check();
                     swap(i,j,i+1,j);
