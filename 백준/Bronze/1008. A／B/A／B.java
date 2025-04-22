@@ -10,6 +10,6 @@ class Main {
         double a = Double.parseDouble(st.nextToken());
         double b = Double.parseDouble(st.nextToken());
 
-        System.out.printf("%.15f\n", a / b);
+        System.out.print(a / b);
     }
 }
