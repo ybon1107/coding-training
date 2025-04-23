@@ -8,20 +8,17 @@ class Main {
 
         StringTokenizer token = new StringTokenizer(br.readLine());
         
-        double[] nums = new double[N];
+        int[] nums = new int[N];
+        double total = 0;
         double max = 0;
         for(int i=0; i<N; i++){
             int x = Integer.parseInt(token.nextToken());
             nums[i] = x;
+            total += x;
             max = Math.max(max,x);
         }
 
-        double sum = 0;
-        for(int i =0; i<N; i++){
-            sum += (nums[i] / max) * 100;
-        }
-
-        double average = sum/N;
+        double average = ((total/max)*100)/N;
         System.out.println(average);
 
     }
