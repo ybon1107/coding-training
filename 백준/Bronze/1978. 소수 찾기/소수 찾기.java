@@ -11,7 +11,7 @@ class Main {
             if (n < 2) continue;
             boolean isTrue = true;
 
-            for(int j=2; j*j <= n; j++){
+            for(int j=2; j <= Math.sqrt(n); j++){
                 if(n%j ==0){
                     isTrue = false;
                     break;
