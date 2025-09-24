@@ -5,17 +5,19 @@ import java.util.Arrays;
 public class Main {
 
 	public void solution(int n, int k, int[] arr){
-		int si = 0;
-		int ei = k;
-		int answer = Integer.MIN_VALUE;
-		while(ei<n){
-			int val = 0;
-			for(int i=si;i<ei;i++){
-				val += arr[i];
-			}
-			if(answer<val) answer = val;
-			si ++;
-			ei ++;
+		int idx = k;
+		int value = 0;
+		
+		for(int i=0;i<k;i++){
+			value += arr[i];
+		}
+		int answer = value;
+		while(idx<n){
+			value = value + arr[idx];
+			value = value - arr[idx-k];
+			
+			if(answer<value) answer = value;
+			idx++;
 		}
 		System.out.println(answer);
     }
