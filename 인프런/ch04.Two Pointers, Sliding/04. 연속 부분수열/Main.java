@@ -1,33 +1,17 @@
 import java.io.*;
-
+// 1 2 1 3 1 1 1 2
 public class Main {
 
     public void solution(int n, int m, int[] arr){
-        int cnt = 0;
-        int s_indx = 0;
-        int indx =0;
+        int lt = 0;
         int sum = 0;
-        while(s_indx < n){
-            sum += arr[indx];
-            if(sum == m){
-                cnt ++;
-                s_indx ++;
-                indx = s_indx;
-                sum = 0;
-                continue;
-            } else if(sum > m){
-                sum = 0;
-                s_indx ++;
-                indx = s_indx;
-            } else{
-                if(indx == n-1){
-                    indx = s_indx;
-                    s_indx ++;
-                    sum = 0;
-                } else{
-                    indx ++;
-                }
-                
+        int cnt = 0;
+        for(int rt=0; rt<n; rt++){
+            sum += arr[rt];
+            if(sum == m) cnt ++;
+            while(sum >= m ){
+                sum -= arr[lt++];
+                if(sum == m) cnt ++;
             }
         }
         
